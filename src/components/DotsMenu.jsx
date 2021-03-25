@@ -6,7 +6,6 @@ let settings = [
   { label: "Aide", icon: "subscriptions", onClick: () => alert('Aide') },
 ]
 
-
 function DotsMenu() {
   return (
     <div className="dotsMenu">

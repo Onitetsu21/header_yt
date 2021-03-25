@@ -11,6 +11,7 @@ const buffer = require('vinyl-buffer')
 const browserify = require('browserify')
 const babelify = require('babelify')
 const sourcemaps = require('gulp-sourcemaps')
+const watchify = require('watchify')
 
 const io = {
   src: './src',
@@ -45,11 +46,11 @@ function html() {
 }
 
 function js() {
-  return browserify({
+  return watchify(browserify({
     entries: io.src + '/script.jsx',
     debug: true,
     extensions: ['.js', '.jsx']
-  })
+  }))
     .transform(babelify.configure({
       presets: ['@babel/preset-env', '@babel/preset-react']
     }))
@@ -63,7 +64,7 @@ function js() {
 }
 
 function image() {
-  return src(io.src + '/assets/svg/*')
+  return src(io.src + '/images/*.jpg')
     .pipe(imagemin({
       interlaced: true,
       progressive: true,
@@ -100,7 +101,8 @@ const build = series(
   parallel(css, html, js, image),
 )
 
-watch([io.src + '/**/*'], series(build, reload))
+watch([io.src + '/**/*.css', io.src + '/**/*.html'], series(build, reload))
+watch([io.src + '/**/*.jsx', io.src + '/**/*.js'], series(js, reload))
 
 exports.default = series(
   build,

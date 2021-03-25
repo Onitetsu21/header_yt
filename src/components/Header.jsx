@@ -5,6 +5,7 @@ import SearchBar from './SearchBar'
 import DotsButton from './DotsButton';
 import DotsMenu from './DotsMenu';
 
+
 function Header() {
 
   return (
