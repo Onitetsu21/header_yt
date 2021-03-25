@@ -10,9 +10,18 @@ body {
 header{
     display: flex;
     flex-direction: row;
+    position: absolute;
     justify-content: space-between;
-    /* background-color: lightskyblue; */
     align-items: center;
+    /* height: 80px; */
+    /* max-height: 80px; */
+    width: 99vw;
+    /* background-color: lightgray; */
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
 }
 
 /* ################## */
@@ -63,7 +72,7 @@ header{
 .header_rightSection{
     display: flex;
     flex-direction: row;
-    width: 10rem;
+    align-items: center;
 }
 
 /* LOGIN BUTTON */
@@ -86,8 +95,8 @@ header{
 
 /* DOTS MENU */
 
-.dotsSection{
-
+.dotsButton{
+    height: 100%;
 }
 
 .dotsMenu{
@@ -97,6 +106,8 @@ header{
     position: relative;
     border: 1px solid lightgray;
     justify-content: space-around;
+    margin-bottom: -170px;
+    margin-right: -300px;
 }
 
 .dotsMenu >span:hover{

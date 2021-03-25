@@ -12,7 +12,7 @@ function DotsMenu() {
     <div className="dotsMenu">
       {settings.map(elm => 
         <span onClick={elm.onClick} >{elm.icon}{elm.label}</span>
-        )}
+      )}
     </div>
   )
 }
